@@ -21,7 +21,7 @@ fn spawn_camera(mut commands: Commands) {
 
    commands.spawn(camera)
        .insert(PanCam {
-           grab_buttons: vec![MouseButton::Left, MouseButton::Middle], // which buttons should drag the camera
+           grab_buttons: vec![MouseButton::Middle], // which buttons should drag the camera
            enabled: true, // when false, controls are disabled. See toggle example.
            zoom_to_cursor: true, // whether to zoom towards the mouse or the center of the screen
            min_scale: 1., // prevent the camera from zooming too far in
