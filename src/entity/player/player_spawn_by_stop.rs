@@ -20,7 +20,7 @@ pub fn spawn_player_stop_by_front(mut commands: Commands, asset: Res<PlayerAsset
             texture: asset.stop_by_front.clone(),
             ..default()
         },
-        TextureAtlas::from(asset.walking_by_front_layout.clone()),
+        TextureAtlas::from(asset.stop_by_front_layout.clone()),
         AnimationTimer {
             timer: Timer::from_seconds(0.125, TimerMode::Repeating),
         },
@@ -40,10 +40,10 @@ pub fn spawn_player_stop_by_back(mut commands: Commands, asset: Res<PlayerAssetC
 
     commands.spawn((
         SpriteBundle {
-            texture: asset.stop_by_front.clone(),
+            texture: asset.stop_by_back.clone(),
             ..default()
         },
-        TextureAtlas::from(asset.walking_by_front_layout.clone()),
+        TextureAtlas::from(asset.stop_by_back_layout.clone()),
         AnimationTimer {
             timer: Timer::from_seconds(0.125, TimerMode::Repeating),
         },
@@ -64,10 +64,10 @@ pub fn spawn_player_stop_by_left(mut commands: Commands, asset: Res<PlayerAssetC
 
     commands.spawn((
         SpriteBundle {
-            texture: asset.stop_by_front.clone(),
+            texture: asset.stop_by_left.clone(),
             ..default()
         },
-        TextureAtlas::from(asset.walking_by_front_layout.clone()),
+        TextureAtlas::from(asset.stop_by_left_layout.clone()),
         AnimationTimer {
             timer: Timer::from_seconds(0.125, TimerMode::Repeating),
         },
@@ -88,10 +88,10 @@ pub fn spawn_player_stop_by_right(mut commands: Commands, asset: Res<PlayerAsset
 
     commands.spawn((
         SpriteBundle {
-            texture: asset.stop_by_front.clone(),
+            texture: asset.stop_by_right.clone(),
             ..default()
         },
-        TextureAtlas::from(asset.walking_by_front_layout.clone()),
+        TextureAtlas::from(asset.stop_by_right_layout.clone()),
         AnimationTimer {
             timer: Timer::from_seconds(0.125, TimerMode::Repeating),
         },

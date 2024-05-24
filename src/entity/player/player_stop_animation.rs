@@ -9,7 +9,7 @@ pub fn update_player_stop_by_front(
         animation.timer.tick(time.delta());
 
         if animation.timer.just_finished() {
-            sprite.index = (sprite.index + 1) % 6;
+            sprite.index = (sprite.index + 1) % 1;
         }
     }
 }
@@ -22,7 +22,7 @@ pub fn update_player_stop_by_back(
         animation.timer.tick(time.delta());
 
         if animation.timer.just_finished() {
-            sprite.index = (sprite.index + 1) % 6;
+            sprite.index = (sprite.index + 1) % 1;
         }
     }
 }
@@ -35,7 +35,7 @@ pub fn update_player_stop_by_left(
         animation.timer.tick(time.delta());
 
         if animation.timer.just_finished() {
-            sprite.index = (sprite.index + 1) % 6;
+            sprite.index = (sprite.index + 1) % 1;
         }
     }
 }
@@ -48,7 +48,7 @@ pub fn update_player_stop_by_right(
         animation.timer.tick(time.delta());
 
         if animation.timer.just_finished() {
-            sprite.index = (sprite.index + 1) % 6;
+            sprite.index = (sprite.index + 1) % 1;
         }
     }
 }
