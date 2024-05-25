@@ -36,17 +36,31 @@ pub struct PlayerPlugin;
 impl Plugin for PlayerPlugin {
     fn build(&self, app: &mut App) {
         app.add_plugins(PlayerAnimationPlugin)
-            .add_systems(Update, character_movement)
+            .add_systems(Update, (character_movement, sync_player_camera))
             .register_type::<Player>();
     }
 }
+
+fn sync_player_camera (
+    players: Query<(&Player, &Transform)>,
+    mut cameras: Query<&mut Transform, (With<Camera>, Without<Player>)>,
+) {
+    for (player, player_transform) in &players {
+        let pos = player_transform.translation;
+
+        for mut transform in &mut cameras {
+            transform.translation.x = pos.x;
+            transform.translation.y = pos.y;
+        }
+    }
+}
+
 
 fn character_movement(
     mut characters: Query<(&mut Transform, &Player)>,
     button_input: Res<ButtonInput<KeyCode>>,
     time: Res<Time>,
     mut next_state: ResMut<NextState<PlayerState>>,
-    state: Res<State<PlayerState>>
 ) {
     for (mut transform, player) in &mut characters {
         let movement_amount = player.speed * time.delta_seconds();
