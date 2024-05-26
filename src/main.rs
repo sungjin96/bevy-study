@@ -2,15 +2,13 @@ use bevy::prelude::*;
 
 mod config;
 mod entity;
-
-use config::ConfigPlugin;
-use entity::EntityPlugin;
+mod map;
 
 fn main() {
     App::new()
         .add_plugins((
-            ConfigPlugin,
-            EntityPlugin
+            config::ConfigPlugin,
+            entity::EntityPlugin,
         ))
         .run();
 }

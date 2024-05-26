@@ -1,10 +1,13 @@
 use bevy::prelude::*;
 
-mod debug_plugin;
-mod camera_plugin;
+mod debug;
+mod camera;
+mod entitiles;
+mod common;
+mod camera_movement;
 
-use debug_plugin::DebugPlugin;
-use camera_plugin::CameraPlugin;
+use debug::DebugPlugin;
+use camera::CameraPlugin;
 
 pub struct ConfigPlugin;
 
@@ -26,7 +29,7 @@ impl Plugin for ConfigPlugin {
         )
             .add_plugins((
                 DebugPlugin,
-                CameraPlugin
+                CameraPlugin,
             ));
     }
 }
